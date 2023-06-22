@@ -9,76 +9,62 @@
 #include <dt-bindings/zmk/bt.h>
 
 / {
-        conditional_layers {
-          compatible = "zmk,conditional-layers";
-          tri_layer {
-              if-layers = <1 2>;
-              then-layer = <3>;
-          };
-        };
+  conditional_layers {
+    compatible = "zmk,conditional-layers";
+    tri_layer {
+        if-layers = <1 2>;
+        then-layer = <3>;
+    };
+  };
 
-        behaviors {
-          ht: hold_tap {
-            compatible = "zmk,behavior-hold-tap";
-            label = "DEFAULT_HOLD_TAP";
-            #binding-cells = <2>;
-            flavor = "tap-unless-interrupted";
-            tapping-term-ms = <100>;
-            quick-tap-ms = <200>;
-            bindings = <&kp>, <&kp>;
-          };
-        };
+  behaviors {
+    ht: hold_tap {
+      compatible = "zmk,behavior-hold-tap";
+      label = "DEFAULT_HOLD_TAP";
+      #binding-cells = <2>;
+      flavor = "tap-unless-interrupted";
+      tapping-term-ms = <100>;
+      quick-tap-ms = <200>;
+      bindings = <&kp>, <&kp>;
+    };
+  };
 
-        keymap {
-          compatible = "zmk,keymap";
+  keymap {
+    compatible = "zmk,keymap";
 
-          default_layer {
-            bindings = <
-              &none  &kp Q        &kp W  &kp E  &kp R  &kp T     &kp Y  &kp U  &kp I      &kp O    &kp P     &none
-              &none  &ht LCTRL A  &kp S  &kp D  &kp F  &kp G     &kp H  &kp J  &kp K      &kp L    &kp SEMI  &none
-              &none  &kp Z        &kp X  &kp C  &kp V  &kp B     &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &none
-                         &kp LGUI   &mo 1   &ht LSHIFT SPACE     &ht RSHIFT ESC   &mo 2   &kp RALT
-            >;
-          };
+    default_layer {
+      bindings = <
+        &none  &kp Q        &kp W  &kp E  &kp R  &kp T     &kp Y  &kp U  &kp I      &kp O    &kp P     &none
+        &none  &ht LCTRL A  &kp S  &kp D  &kp F  &kp G     &kp H  &kp J  &kp K      &kp L    &kp SEMI  &none
+        &none  &kp Z        &kp X  &kp C  &kp V  &kp B     &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &none
+                    &kp LGUI   &mo 1   &ht LSHIFT SPACE     &ht RSHIFT ESC   &mo 2   &kp RALT
+      >;
+    };
 
-          punctuation_layer {
-            bindings = <
-              &none  &kp EXCL          &kp AT            &kp HASH          &kp DOLLAR        &kp PERCENT           &kp CARET  &kp AMPERSAND  &kp ASTERISK  &kp LPAR   &kp RPAR   &none
-              &none  &ht LCTRL LC(N1)  &ht LCTRL LC(N2)  &ht LCTRL LC(N3)  &ht LCTRL LC(N4)  &ht LCTRL LC(N5)      &kp MINUS  &kp EQUAL      &kp LBKT      &kp RBKT   &kp COMMA  &none
-              &none  &none             &none             &none             &none             &none                 &kp UNDER  &kp PLUS       &kp BSLH      &kp GRAVE  &kp PIPE2  &none
-            >;
-          };
+    punctuation_layer {
+      bindings = <
+        &none  &kp EXCL          &kp AT            &kp HASH          &kp DOLLAR        &kp PERCENT           &kp CARET  &kp AMPERSAND  &kp ASTERISK  &kp LPAR   &kp RPAR   &none
+        &none  &ht LCTRL LC(N1)  &ht LCTRL LC(N2)  &ht LCTRL LC(N3)  &ht LCTRL LC(N4)  &ht LCTRL LC(N5)      &kp MINUS  &kp EQUAL      &kp LBKT      &kp RBKT   &kp COMMA  &none
+        &none  &none             &none             &none             &none             &none                 &kp UNDER  &kp PLUS       &kp BSLH      &kp GRAVE  &kp PIPE2  &none
+      >;
+    };
 
-          number_layer {
-            bindings = <
-              &none  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5     &kp N6    &kp N7     &kp N8    &kp N9     &kp N0   &none
-              &none  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5     &kp LEFT  &kp DOWN   &kp UP    &kp RIGHT  &kp TAB  &none
-              &none  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10    &kp BSPC  &kp ENTER  &kp F11   &kp F12    &none    &none
-                                      &trans  &trans  &trans    &trans  &trans  &trans
-            >;
-          };
+    number_layer {
+      bindings = <
+        &none  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5     &kp N6    &kp N7     &kp N8    &kp N9     &kp N0   &none
+        &none  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5     &kp LEFT  &kp DOWN   &kp UP    &kp RIGHT  &kp TAB  &none
+        &none  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10    &kp BSPC  &kp ENTER  &kp F11   &kp F12    &none    &none
+                                &trans  &trans  &trans    &trans  &trans  &trans
+      >;
+    };
 
-          adjust_layer {
-            bindings = <
-              &none  &bt BT_SEL 0       &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3       &bt BT_SEL 4         &none              &none              &none             &none              &bt BT_CLR  &none
-              &none  &kp LS(LA(LC(A)))  &none         &none         &kp LS(LA(LC(F)))  &kp LS(LA(LC(G)))    &kp LS(LA(LC(H)))  &kp LS(LA(LC(J)))  &kp LS(LA(LC(K))) &kp LS(LA(LC(L)))  &none       &none
-              &none  &none              &none         &none         &none              &none                &none              &kp LS(LA(LC(M)))  &none            &none             &none      &none
-                                                                                  &trans  &trans  &trans    &trans  &trans  &trans
-            >;
-          };
-
-                test_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-// | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
-                        bindings = <
-   &kp TAB    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
-   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
-   &kp LSHFT  &trans       &trans       &trans       &trans       &trans         &trans   &trans   &trans &trans    &trans &trans
-                                    &kp LGUI     &trans       &kp SPACE      &kp RET  &trans   &kp RALT
-                        >;
-                };
-        };
+    adjust_layer {
+      bindings = <
+        &none  &bt BT_SEL 0       &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3       &bt BT_SEL 4         &none              &none              &none             &none              &bt BT_CLR  &none
+        &none  &kp LS(LA(LC(A)))  &none         &none         &kp LS(LA(LC(F)))  &kp LS(LA(LC(G)))    &kp LS(LA(LC(H)))  &kp LS(LA(LC(J)))  &kp LS(LA(LC(K))) &kp LS(LA(LC(L)))  &none       &none
+        &none  &none              &none         &none         &none              &none                &none              &kp LS(LA(LC(M)))  &none            &none             &none      &none
+                                                                            &trans  &trans  &trans    &trans  &trans  &trans
+      >;
+    };
+  };
 };
