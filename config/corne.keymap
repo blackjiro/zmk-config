@@ -43,9 +43,9 @@
 
     punctuation_layer {
       bindings = <
-        &none  &kp EXCL          &kp AT            &kp HASH          &kp DOLLAR        &kp PERCENT           &kp CARET  &kp AMPERSAND  &kp ASTERISK  &kp LPAR   &kp RPAR   &none
-        &none  &ht LCTRL LC(N1)  &ht LCTRL LC(N2)  &ht LCTRL LC(N3)  &ht LCTRL LC(N4)  &ht LCTRL LC(N5)      &kp MINUS  &kp EQUAL      &kp LBKT      &kp RBKT   &kp COMMA  &none
-        &none  &none             &none             &none             &none             &none                 &kp UNDER  &kp PLUS       &kp BSLH      &kp GRAVE  &kp PIPE2  &none
+        &none  &kp EXCL    &kp AT      &kp HASH    &kp DOLLAR  &kp PERCENT     &kp CARET  &kp AMPERSAND  &kp ASTERISK  &kp LPAR   &kp RPAR   &none
+        &none  &kp LC(N1)  &kp LC(N2)  &kp LC(N3)  &kp LC(N4)  &kp LC(N5)      &kp MINUS  &kp EQUAL      &kp LBKT      &kp RBKT   &kp COMMA  &none
+        &none  &none       &none       &none       &none       &none           &kp UNDER  &kp PLUS       &kp BSLH      &kp GRAVE  &kp PIPE2  &none
       >;
     };
 
